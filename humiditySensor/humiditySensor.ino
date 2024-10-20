@@ -1,6 +1,6 @@
 #include <DHT.h>
 
-#define DHTPIN A0
+#define DHTPIN 17
 #define DHTTYPE DHT11
 
 DHT dht(DHTPIN,DHTTYPE);
@@ -36,5 +36,5 @@ void loop() {
   Serial.print(t);
   Serial.print("C\n");
 
-  delay(10000);
+  delay(30);
 }
