@@ -29,6 +29,6 @@ int main(){
     send(clientSocket,message,strlen(message),0);
 
     close(clientSocket);
-    std::cout << "\nRunning now";
+    std::cout << "\nFinished";
     return 0;
 }
