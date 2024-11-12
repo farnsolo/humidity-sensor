@@ -1,6 +1,6 @@
 import socket
 
-host = "127.0.0.1"
+host = "172.28.91.42"
 port = 8080
 
 # Wont close socket
