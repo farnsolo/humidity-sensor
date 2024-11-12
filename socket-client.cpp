@@ -1,4 +1,5 @@
 #include <cstring>
+#include <string>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <iostream>
@@ -14,7 +15,7 @@ int main(){
     serverAddress.sin_family = AF_INET;
     serverAddress.sin_port = htons(8080);
 
-    if(inet_pton(AF_INET, "127.0.0.1", &serverAddress.sin_addr) <= 0){
+    if(inet_pton(AF_INET, "172.28.91.42", &serverAddress.sin_addr) <= 0){
         std::cout << "\nError in address space\n";
         return -1;
     }
@@ -25,7 +26,16 @@ int main(){
         return -1;
     }
 
-    const char* message = "Hello, server!";
+    // humidity and temp data first
+
+    const char* humidity = "23.8";
+    const char* temp = "12.5";
+
+    char message[100];
+    strcpy(message, humidity);
+    strcat(message,temp);
+    
+
     send(clientSocket,message,strlen(message),0);
 
     close(clientSocket);
