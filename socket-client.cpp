@@ -1,4 +1,5 @@
 #include <cstring>
+#include <string>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <iostream>
@@ -25,7 +26,16 @@ int main(){
         return -1;
     }
 
-    const char* message = "Hello, server!";
+    // humidity and temp data first
+
+    const char* humidity = "23.8";
+    const char* temp = "12.5";
+
+    char message[100];
+    strcpy(message, humidity);
+    strcat(message,temp);
+    
+
     send(clientSocket,message,strlen(message),0);
 
     close(clientSocket);
